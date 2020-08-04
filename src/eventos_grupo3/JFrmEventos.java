@@ -306,8 +306,9 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
                 JOptionPane.showMessageDialog(null,"Su pedido es: ","Sistema" ,JOptionPane.PLAIN_MESSAGE);
             }else
                 JOptionPane.showMessageDialog(null,"No estan todos los campos llenos","Sistema" ,JOptionPane.ERROR_MESSAGE);
-        }else if (obj == JBTcancelar){
-//            jButton1_actionPerformed2();
+        }else if (obj == jBtnCancelar){
+            System.exit(0);
+        }
 //        }
     }
 
