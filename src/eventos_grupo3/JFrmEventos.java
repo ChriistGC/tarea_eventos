@@ -301,12 +301,12 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
             System.out.println(jTxfNombre.getText());
             int n=JOptionPane.showConfirmDialog(null, "¿Desea grabar los datos?", "Mensaje del Sistema", 
                                                     JOptionPane.OK_CANCEL_OPTION,JOptionPane.INFORMATION_MESSAGE);
-            if(n==JOptionPane.OK_OPTION && jTxfNombre.getText()!="" && jTxfApellido.getText()!="" && jTxfCedula.getText()!=""){
+            if(n==JOptionPane.OK_OPTION && !jTxfNombre.getText().equals("")&& !jTxfApellido.getText().equals("") && !jTxfCedula.getText().equals("")){
                 
-                JOptionPane.showMessageDialog(null,"Este es msg Plano","Sistema" ,JOptionPane.PLAIN_MESSAGE);
+                JOptionPane.showMessageDialog(null,"Su pedido es: ","Sistema" ,JOptionPane.PLAIN_MESSAGE);
             }else
                 JOptionPane.showMessageDialog(null,"No estan todos los campos llenos","Sistema" ,JOptionPane.ERROR_MESSAGE);
-        }//else if (obj == JBTcancelar){
+        }else if (obj == JBTcancelar){
 //            jButton1_actionPerformed2();
 //        }
     }
