@@ -5,20 +5,30 @@
  */
 package eventos_grupo3;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.util.Random;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.event.MenuEvent;
+import javax.swing.event.MenuListener;
 
 /**
  *
  * @author kriz_
  */
-public class JFrmEventos extends javax.swing.JFrame implements WindowListener, ComponentListener, ActionListener {
+public class JFrmEventos extends javax.swing.JFrame implements WindowListener, ComponentListener, ActionListener, MenuListener, KeyListener, FocusListener {
 
     /**
      * Creates new form JFrmEventos
@@ -28,8 +38,51 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
         setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         addWindowListener(this);
+        setBackground(Color.GREEN);
         jBtnAceptar.addActionListener(this);
-        //addComponentListener(this);
+        jBtnCancelar.addActionListener(this);
+        jBtnMetPago.addActionListener(this);
+        jBtnMenu.addActionListener(this);
+        jBtnBorrar.addActionListener(this);
+        jMhelp.addMenuListener(this);
+        jTxfCedula.addKeyListener(this);
+        jTxfNombre.addKeyListener(this);
+        jTxfApellido.addKeyListener(this);
+        jTxfMtdoPago.addKeyListener(this);
+        jTxfOrden.addKeyListener(this);
+        jBtnAceptar.addKeyListener(this);
+        jBtnCancelar.addKeyListener(this);
+        jBtnMetPago.addKeyListener(this);
+        jBtnMenu.addKeyListener(this);
+        jBtnBorrar.addKeyListener(this);
+        jBtnAceptar.addFocusListener(this);
+        addComponentListener(this);
+
+    }
+
+    private int x;
+    private int y;
+
+    public void xd(){
+//        jLabel1.setLocation((x/2)-15, jLabel1.getLocation().y);
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 3, x/20));
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 3, (x/13)-jLabel1.getFont().getSize()));
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 3, (x/13)-jLabel1.getFont().getSize()));
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 3, (x/13)-jLabel1.getFont().getSize()));
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 3, (x/13)-jLabel1.getFont().getSize()));
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 3, (x/13)-jLabel1.getFont().getSize()));
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 3, (x/13)-jLabel1.getFont().getSize()));
+        jLblNOrden.setFont(new java.awt.Font("Times New Roman", 2, (x/13)-jLabel1.getFont().getSize()));
+        jTxfNombre.setFont(new java.awt.Font("Times New Roman", 0, (x/13)-jLabel1.getFont().getSize()));
+        jTxfApellido.setFont(new java.awt.Font("Times New Roman", 0, (x/13)-jLabel1.getFont().getSize()));
+        jTxfCedula.setFont(new java.awt.Font("Times New Roman", 0, (x/13)-jLabel1.getFont().getSize()));
+        jTxfMtdoPago.setFont(new java.awt.Font("Times New Roman", 0, (x/13)-jLabel1.getFont().getSize()));
+        jTxfOrden.setFont(new java.awt.Font("Times New Roman", 0, (x/13)-jLabel1.getFont().getSize()));
+        jBtnAceptar.setFont(new java.awt.Font("Times New Roman", 3, (x/13)-jLabel1.getFont().getSize()));
+        jBtnCancelar.setFont(new java.awt.Font("Times New Roman", 3, (x/13)-jLabel1.getFont().getSize()));
+        jBtnBorrar.setFont(new java.awt.Font("Times New Roman", 3, (x/13)-jLabel1.getFont().getSize()));
+        jBtnMenu.setFont(new java.awt.Font("Times New Roman", 3, (x/13)-jLabel1.getFont().getSize()));
+        jBtnMetPago.setFont(new java.awt.Font("Times New Roman", 3, (x/13)-jLabel1.getFont().getSize()));
     }
 
     /**
@@ -54,8 +107,19 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
         jBtnMetPago = new javax.swing.JButton();
         jBtnBorrar = new javax.swing.JButton();
         jBtnMenu = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        jTxfOrden = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jTxfMtdoPago = new javax.swing.JTextField();
+        jLblNOrden = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMhelp = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.setForeground(new java.awt.Color(255, 0, 51));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 20)); // NOI18N
         jLabel1.setText("KrustyBurguer");
@@ -67,7 +131,7 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
         jLabel3.setText("Apellido:");
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel4.setText("Cédula:");
+        jLabel4.setText("Su orden es:");
 
         jTxfNombre.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
 
@@ -91,97 +155,149 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
 
         jBtnMenu.setText("Menú");
 
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jLabel7.setText("Cédula:");
+
+        jTxfOrden.setEditable(false);
+        jTxfOrden.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTxfOrdenActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jLabel5.setText("Método de pago:");
+
+        jTxfMtdoPago.setEditable(false);
+
+        jLabel6.setText("N° Orden");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(140, 140, 140)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTxfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jTxfNombre))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTxfCedula)
-                                    .addComponent(jTxfApellido))))
-                        .addGap(27, 27, 27)
-                        .addComponent(jBtnMenu))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jTxfApellido))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addComponent(jTxfCedula))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLblNOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(64, 64, 64)))
+                        .addGap(64, 64, 64))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTxfMtdoPago)
+                        .addGap(18, 18, 18)
+                        .addComponent(jBtnMetPago)
+                        .addGap(47, 47, 47))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(158, Short.MAX_VALUE)
                         .addComponent(jBtnAceptar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jBtnCancelar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jBtnMetPago)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jBtnBorrar)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jBtnBorrar)
+                        .addGap(67, 67, 67))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTxfOrden)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jBtnMenu)
+                .addGap(26, 26, 26))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLblNOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTxfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(4, 4, 4)
+                    .addComponent(jTxfNombre))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
                     .addComponent(jTxfApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBtnMenu))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTxfCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addGap(52, 52, 52)
+                    .addComponent(jLabel7))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jTxfMtdoPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBtnMetPago))
+                .addGap(25, 25, 25)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jTxfOrden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBtnMenu))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBtnAceptar)
                     .addComponent(jBtnCancelar)
-                    .addComponent(jBtnMetPago)
                     .addComponent(jBtnBorrar))
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
+
+        jMhelp.setText("Help");
+        jMenuBar1.add(jMhelp);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jBtnMetPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnMetPagoActionPerformed
+    private void jTxfOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxfOrdenActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jBtnMetPagoActionPerformed
+    }//GEN-LAST:event_jTxfOrdenActionPerformed
 
     private void jBtnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnBorrarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jBtnBorrarActionPerformed
+
+    private void jBtnMetPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnMetPagoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBtnMetPagoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -228,12 +344,19 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLblNOrden;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu jMhelp;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTxfApellido;
     private javax.swing.JTextField jTxfCedula;
+    private javax.swing.JTextField jTxfMtdoPago;
     private javax.swing.JTextField jTxfNombre;
+    private javax.swing.JTextField jTxfOrden;
     // End of variables declaration//GEN-END:variables
-
 
     @Override
     public void windowClosing(WindowEvent e) {
@@ -276,7 +399,11 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
 
     @Override
     public void componentResized(ComponentEvent e) {
-       throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Component c = e.getComponent();
+        x = c.getSize().width;
+        y = c.getSize().height;
+        
+        xd();
     }
 
     @Override
@@ -296,21 +423,131 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        Object obj=e.getSource();
-        if (obj == jBtnAceptar){
-            System.out.println(jTxfNombre.getText());
-            int n=JOptionPane.showConfirmDialog(null, "¿Desea grabar los datos?", "Mensaje del Sistema", 
-                                                    JOptionPane.OK_CANCEL_OPTION,JOptionPane.INFORMATION_MESSAGE);
-            if(n==JOptionPane.OK_OPTION && !jTxfNombre.getText().equals("")&& !jTxfApellido.getText().equals("") && !jTxfCedula.getText().equals("")){
-                
-                JOptionPane.showMessageDialog(null,"Su pedido es: ","Sistema" ,JOptionPane.PLAIN_MESSAGE);
-            }else
-                JOptionPane.showMessageDialog(null,"No estan todos los campos llenos","Sistema" ,JOptionPane.ERROR_MESSAGE);
-        }else if (obj == jBtnCancelar){
+        Object obj = e.getSource();
+        if (obj == jBtnAceptar) {
+            if (!jTxfNombre.getText().isEmpty() && !jTxfApellido.getText().isEmpty() && !jTxfCedula.getText().isEmpty() && !jTxfMtdoPago.getText().isEmpty() && !jTxfOrden.getText().isEmpty()) {
+                int n = JOptionPane.showConfirmDialog(null, "¿Desea grabar los datos?", "Mensaje del Sistema",
+                        JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
+                if (n == JOptionPane.OK_OPTION) {
+                    String datos = "\nNombre: " + jTxfNombre.getText() + "\nApellido: " + jTxfApellido.getText()
+                            + "\nCedula: " + jTxfCedula.getText() + "\nMetodo de pago: " + jTxfMtdoPago.getText()
+                            + "\nOrden:" + jTxfOrden.getText();
+                    JOptionPane.showMessageDialog(null, "Su pedido es: " + datos, "Sistema", JOptionPane.INFORMATION_MESSAGE);
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "No estan todos los campos llenos", "Sistema", JOptionPane.ERROR_MESSAGE);
+            }
+
+        } else if (obj == jBtnCancelar) {
             System.exit(0);
+        } else if (obj == jBtnMetPago) {
+            JDialMetPago cuadroDialogo = new JDialMetPago(this, true);
+            cuadroDialogo.pack();
+            cuadroDialogo.setVisible(true);
+            jTxfMtdoPago.setText(cuadroDialogo.get_Msg());
+        } else if (obj == jBtnBorrar) {
+            jTxfNombre.setText("");
+            jTxfCedula.setText("");
+            jTxfApellido.setText("");
+            jTxfMtdoPago.setText("");
+            jTxfOrden.setText("");
+            jLblNOrden.setText("");
+        } else if (obj == jBtnMenu) {
+            JDialMenu cuadroDialogo = new JDialMenu(this, true);
+            cuadroDialogo.pack();
+            cuadroDialogo.setVisible(true);
+            jTxfOrden.setText(cuadroDialogo.get_Msg());
         }
-//        }
     }
 
-    
+    @Override
+    public void menuSelected(MenuEvent e) {
+        Object obj = e.getSource();
+
+        if (obj == jMhelp) {
+            int n = JOptionPane.showConfirmDialog(null, "¿Necesita ayuda?", "Mensaje del Sistema",
+                    JOptionPane.YES_NO_OPTION);
+            if (n == JOptionPane.YES_OPTION) {
+                JOptionPane.showMessageDialog(jMenuBar1, "Un asesor lo atendera", "Mensaje del sistema", JOptionPane.INFORMATION_MESSAGE);
+            }
+
+        }
+    }
+
+    @Override
+    public void menuDeselected(MenuEvent e) {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void menuCanceled(MenuEvent e) {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        Object obj = e.getSource();
+        if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+            if (obj == jBtnAceptar || obj == jTxfNombre || obj == jTxfApellido || obj == jTxfMtdoPago || obj == jTxfOrden || obj == jTxfCedula) {
+                if (!jTxfNombre.getText().isEmpty() && !jTxfApellido.getText().isEmpty() && !jTxfCedula.getText().isEmpty() && !jTxfMtdoPago.getText().isEmpty() && !jTxfOrden.getText().isEmpty()) {
+                    int n = JOptionPane.showConfirmDialog(null, "¿Desea grabar los datos?", "Mensaje del Sistema",
+                            JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
+                    if (n == JOptionPane.OK_OPTION && jTxfNombre.getText().isEmpty() && !jTxfApellido.getText().isEmpty() && !jTxfCedula.getText().isEmpty() && !jTxfMtdoPago.getText().isEmpty() && !jTxfOrden.getText().isEmpty()) {
+                        String datos = "\nNombre: " + jTxfNombre.getText() + "\nApellido: " + jTxfApellido.getText()
+                                + "\nCedula: " + jTxfCedula.getText() + "\nMetodo de pago: " + jTxfMtdoPago.getText()
+                                + "\nOrden:" + jTxfOrden.getText();
+                        JOptionPane.showMessageDialog(null, "Su pedido es: " + datos, "Sistema", JOptionPane.INFORMATION_MESSAGE);
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "No estan todos los campos llenos", "Sistema", JOptionPane.ERROR_MESSAGE);
+                }
+
+            } else if (obj == jBtnCancelar) {
+                System.exit(0);
+            } else if (obj == jBtnMetPago) {
+                JDialMetPago cuadroDialogo = new JDialMetPago(this, true);
+                cuadroDialogo.pack();
+                cuadroDialogo.setVisible(true);
+                jTxfMtdoPago.setText(cuadroDialogo.get_Msg());
+            } else if (obj == jBtnBorrar) {
+                jTxfNombre.setText("");
+                jTxfCedula.setText("");
+                jTxfApellido.setText("");
+                jTxfMtdoPago.setText("");
+                jTxfOrden.setText("");
+            } else if (obj == jBtnMenu) {
+                JDialMenu cuadroDialogo = new JDialMenu(this, true);
+                cuadroDialogo.pack();
+                cuadroDialogo.setVisible(true);
+                jTxfOrden.setText(cuadroDialogo.get_Msg());
+            }
+        }
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void focusGained(FocusEvent e) {
+        jLblNOrden.getText();
+    }
+
+    @Override
+    public void focusLost(FocusEvent e) {
+        Random rnd = new Random();
+        if (jLblNOrden.getText().isEmpty()) {
+            if (!jTxfNombre.getText().isEmpty() && !jTxfApellido.getText().isEmpty() && !jTxfCedula.getText().isEmpty() && !jTxfMtdoPago.getText().isEmpty() && !jTxfOrden.getText().isEmpty()) {
+                int n = (int) (rnd.nextDouble() * 100 + 1000);
+                jLblNOrden.setText(String.valueOf(n));
+            }
+        }
+    }
+
 }
