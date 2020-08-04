@@ -29,6 +29,10 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
         this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         addWindowListener(this);
         jBtnAceptar.addActionListener(this);
+        jBtnCancelar.addActionListener(this);
+        jBtnMetPago.addActionListener(this);
+        jBtnMenu.addActionListener(this);
+        jBtnBorrar.addActionListener(this);
         //addComponentListener(this);
     }
 
@@ -54,6 +58,10 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
         jBtnMetPago = new javax.swing.JButton();
         jBtnBorrar = new javax.swing.JButton();
         jBtnMenu = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        jTxfOrden = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jTxfMtdoPago = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,7 +75,7 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
         jLabel3.setText("Apellido:");
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel4.setText("Cédula:");
+        jLabel4.setText("Su orden es:");
 
         jTxfNombre.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
 
@@ -91,6 +99,21 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
 
         jBtnMenu.setText("Menú");
 
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jLabel7.setText("Cédula:");
+
+        jTxfOrden.setEditable(false);
+        jTxfOrden.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTxfOrdenActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jLabel5.setText("Método de pago:");
+
+        jTxfMtdoPago.setEditable(false);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -102,30 +125,41 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
                         .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(23, 23, 23)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jTxfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel5)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTxfCedula)
-                                    .addComponent(jTxfApellido))))
-                        .addGap(27, 27, 27)
-                        .addComponent(jBtnMenu))
+                                .addComponent(jTxfApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jBtnMenu))))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jTxfCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addGap(109, 109, 109)
+                            .addComponent(jTxfOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jBtnAceptar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jBtnCancelar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jBtnMetPago)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jBtnBorrar)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTxfMtdoPago, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jBtnAceptar)
+                                .addGap(12, 12, 12)
+                                .addComponent(jBtnCancelar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jBtnMetPago)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jBtnBorrar))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(136, 136, 136)
+                        .addComponent(jLabel4)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -137,22 +171,34 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jTxfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(4, 4, 4)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTxfApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBtnMenu))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTxfApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(jBtnMenu)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTxfCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addGap(52, 52, 52)
+                    .addComponent(jLabel7))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTxfOrden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBtnAceptar)
+                    .addComponent(jLabel5)
+                    .addComponent(jTxfMtdoPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBtnCancelar)
                     .addComponent(jBtnMetPago)
-                    .addComponent(jBtnBorrar))
-                .addContainerGap(89, Short.MAX_VALUE))
+                    .addComponent(jBtnBorrar)
+                    .addComponent(jBtnAceptar))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -175,13 +221,17 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jBtnMetPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnMetPagoActionPerformed
+    private void jTxfOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxfOrdenActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jBtnMetPagoActionPerformed
+    }//GEN-LAST:event_jTxfOrdenActionPerformed
 
     private void jBtnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnBorrarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jBtnBorrarActionPerformed
+
+    private void jBtnMetPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnMetPagoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBtnMetPagoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -228,10 +278,14 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTxfApellido;
     private javax.swing.JTextField jTxfCedula;
+    private javax.swing.JTextField jTxfMtdoPago;
     private javax.swing.JTextField jTxfNombre;
+    private javax.swing.JTextField jTxfOrden;
     // End of variables declaration//GEN-END:variables
 
 
@@ -298,18 +352,34 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
     public void actionPerformed(ActionEvent e) {
         Object obj=e.getSource();
         if (obj == jBtnAceptar){
-            System.out.println(jTxfNombre.getText());
             int n=JOptionPane.showConfirmDialog(null, "¿Desea grabar los datos?", "Mensaje del Sistema", 
                                                     JOptionPane.OK_CANCEL_OPTION,JOptionPane.INFORMATION_MESSAGE);
             if(n==JOptionPane.OK_OPTION && !jTxfNombre.getText().equals("")&& !jTxfApellido.getText().equals("") && !jTxfCedula.getText().equals("")){
-                
-                JOptionPane.showMessageDialog(null,"Su pedido es: ","Sistema" ,JOptionPane.PLAIN_MESSAGE);
+                String datos="\nNombre: "+jTxfNombre.getText()+"\nApellido: "+jTxfApellido.getText()+
+                        "\nCedula: "+jTxfCedula.getText()+"\nMetodo de pago: "+jTxfMtdoPago.getText()+
+                        "\nOrden:"+jTxfOrden.getText();
+                JOptionPane.showMessageDialog(null,"Su pedido es: "+ datos,"Sistema" ,JOptionPane.INFORMATION_MESSAGE);
             }else
                 JOptionPane.showMessageDialog(null,"No estan todos los campos llenos","Sistema" ,JOptionPane.ERROR_MESSAGE);
         }else if (obj == jBtnCancelar){
             System.exit(0);
+        }else if(obj== jBtnMetPago){
+            JDialMetPago cuadroDialogo =  new JDialMetPago(this,true);
+            cuadroDialogo.pack();
+            cuadroDialogo.setVisible(true);
+            jTxfMtdoPago.setText(cuadroDialogo.get_Msg());
+        }else if(obj== jBtnBorrar){
+            jTxfNombre.setText("");
+            jTxfCedula.setText("");
+            jTxfApellido.setText("");
+            jTxfMtdoPago.setText("");
+            jTxfOrden.setText("");
+        }else if(obj== jBtnMenu){
+            JDialMenu cuadroDialogo =  new JDialMenu(this,true);
+            cuadroDialogo.pack();
+            cuadroDialogo.setVisible(true);
+            jTxfOrden.setText(cuadroDialogo.get_Msg());
         }
-//        }
     }
 
     
