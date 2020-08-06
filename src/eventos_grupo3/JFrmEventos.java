@@ -170,6 +170,8 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
 
         jTxfMtdoPago.setEditable(false);
 
+        jLblNOrden.setText("-----");
+
         jLabel6.setText("N° Orden");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -200,9 +202,9 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLblNOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(64, 64, 64)))
+                                .addGap(18, 18, 18)
+                                .addComponent(jLblNOrden)
+                                .addGap(114, 114, 114)))
                         .addGap(64, 64, 64))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel5)
@@ -235,10 +237,11 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLblNOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jLabel1)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel6)
+                        .addComponent(jLblNOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jTxfNombre))
@@ -498,7 +501,7 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
                 if (!jTxfNombre.getText().isEmpty() && !jTxfApellido.getText().isEmpty() && !jTxfCedula.getText().isEmpty() && !jTxfMtdoPago.getText().isEmpty() && !jTxfOrden.getText().isEmpty()) {
                     int n = JOptionPane.showConfirmDialog(null, "¿Desea grabar los datos?", "Mensaje del Sistema",
                             JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
-                    if (n == JOptionPane.OK_OPTION && jTxfNombre.getText().isEmpty() && !jTxfApellido.getText().isEmpty() && !jTxfCedula.getText().isEmpty() && !jTxfMtdoPago.getText().isEmpty() && !jTxfOrden.getText().isEmpty()) {
+                    if (n == JOptionPane.OK_OPTION ) {
                         String datos = "\nNombre: " + jTxfNombre.getText() + "\nApellido: " + jTxfApellido.getText()
                                 + "\nCedula: " + jTxfCedula.getText() + "\nMetodo de pago: " + jTxfMtdoPago.getText()
                                 + "\nOrden:" + jTxfOrden.getText();
@@ -543,7 +546,7 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
     @Override
     public void focusLost(FocusEvent e) {
         Random rnd = new Random();
-        if (jLblNOrden.getText().isEmpty()) {
+        if (jLblNOrden.getText().equals("-----")) {
             if (!jTxfNombre.getText().isEmpty() && !jTxfApellido.getText().isEmpty() && !jTxfCedula.getText().isEmpty() && !jTxfMtdoPago.getText().isEmpty() && !jTxfOrden.getText().isEmpty()) {
                 int n = (int) (rnd.nextDouble() * 100 + 1000);
                 jLblNOrden.setText(String.valueOf(n));
