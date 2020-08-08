@@ -5,18 +5,22 @@
  */
 package eventos_grupo3;
 
+import java.awt.Dimension;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 /**
  *
  * @author kriz_
  */
-public class JDialMenu extends javax.swing.JDialog implements MouseListener, ActionListener {
+public class JDialMenu extends javax.swing.JDialog implements MouseListener, ActionListener,ListSelectionListener {
 
     /**
      * Creates new form JDialMenu
@@ -24,15 +28,35 @@ public class JDialMenu extends javax.swing.JDialog implements MouseListener, Act
     public JDialMenu(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setLocationRelativeTo(null);
         jLblMenu1.addMouseListener(this);
         jLblMenu2.addMouseListener(this);
         jLblMenu3.addMouseListener(this);
         jLblMenu4.addMouseListener(this);
+        jLblMenu5.addMouseListener(this);
         jBtnAceptar.addActionListener(this);
+        Dimension screenSize = new Dimension(500,499);
+        jPanel1.setPreferredSize(screenSize);
+        jLstOrden.addListSelectionListener(this);
+        image();
     }
-
+    
+    DefaultListModel modelo=new DefaultListModel();
     public String get_Msg() {
         return jTxfMenu.getText();
+    }
+    
+    public void image(){
+        Image img = new ImageIcon(getClass().getResource("/image/arroz con pollo.png")).getImage();
+        jLblMenu1.setIcon(new ImageIcon(img.getScaledInstance(jLblMenu1.getWidth(), jLblMenu1.getHeight(), Image.SCALE_SMOOTH)));
+        Image img2 = new ImageIcon(getClass().getResource("/image/Hamburguesa y papas.png")).getImage();
+        jLblMenu2.setIcon(new ImageIcon(img2.getScaledInstance(jLblMenu2.getWidth(), jLblMenu2.getHeight(), Image.SCALE_SMOOTH)));
+        Image img3 = new ImageIcon(getClass().getResource("/image/Hamburguesa y papas2.png")).getImage();
+        jLblMenu3.setIcon(new ImageIcon(img3.getScaledInstance(jLblMenu3.getWidth(), jLblMenu3.getHeight(), Image.SCALE_SMOOTH)));
+        Image img4 = new ImageIcon(getClass().getResource("/image/almuerzo.png")).getImage();
+        jLblMenu4.setIcon(new ImageIcon(img4.getScaledInstance(jLblMenu4.getWidth(), jLblMenu4.getHeight(), Image.SCALE_SMOOTH)));
+        Image img5 = new ImageIcon(getClass().getResource("/image/pastel casero.png")).getImage();
+        jLblMenu5.setIcon(new ImageIcon(img5.getScaledInstance(jLblMenu5.getWidth(), jLblMenu5.getHeight(), Image.SCALE_SMOOTH)));
     }
 
 //    public String get_Msg() {
@@ -47,6 +71,7 @@ public class JDialMenu extends javax.swing.JDialog implements MouseListener, Act
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane2 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jTxfMenu = new javax.swing.JTextField();
@@ -54,10 +79,17 @@ public class JDialMenu extends javax.swing.JDialog implements MouseListener, Act
         jLblMenu2 = new javax.swing.JLabel();
         jLblMenu3 = new javax.swing.JLabel();
         jLblMenu4 = new javax.swing.JLabel();
+        jLblMenu5 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jBtnAceptar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jLstOrden = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        jScrollPane2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        jPanel1.setPreferredSize(new java.awt.Dimension(720, 1360));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         jLabel1.setText("Menú");
@@ -65,17 +97,12 @@ public class JDialMenu extends javax.swing.JDialog implements MouseListener, Act
         jTxfMenu.setEditable(false);
         jTxfMenu.setToolTipText("");
 
-        jLblMenu1.setText("Arroz con pollo");
-
-        jLblMenu2.setText("KrustyBurger");
-
-        jLblMenu3.setText("Una Triple suprema con doble especial");
-
-        jLblMenu4.setText("Arroz con sardinas");
-
         jLabel2.setText("Seleccione su menú:");
 
         jBtnAceptar.setText("Aceptar");
+
+        jLstOrden.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane1.setViewportView(jLstOrden);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -84,66 +111,71 @@ public class JDialMenu extends javax.swing.JDialog implements MouseListener, Act
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(89, 89, 89)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTxfMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLblMenu3)))
+                        .addGap(55, 55, 55)
+                        .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(148, 148, 148)
-                        .addComponent(jBtnAceptar)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(132, 132, 132)
-                            .addComponent(jLblMenu4))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(37, 37, 37)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel2)
-                                .addComponent(jLblMenu1)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                .addComponent(jLblMenu2)
-                .addGap(78, 78, 78))
+                        .addContainerGap()
+                        .addComponent(jLabel2))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLblMenu5, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLblMenu1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLblMenu4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLblMenu3, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLblMenu2, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(103, 103, 103)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(162, 162, 162)
+                        .addComponent(jBtnAceptar))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(109, 109, 109)
+                        .addComponent(jTxfMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(231, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLblMenu1)
-                    .addComponent(jLblMenu4)
-                    .addComponent(jLblMenu2))
+                .addGap(9, 9, 9)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLblMenu1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLblMenu4, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLblMenu3, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(8, 8, 8)
+                            .addComponent(jLblMenu2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLblMenu3)
-                .addGap(26, 26, 26)
-                .addComponent(jTxfMenu)
+                .addComponent(jLblMenu5, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57)
+                .addComponent(jTxfMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jBtnAceptar)
-                .addContainerGap())
+                .addContainerGap(916, Short.MAX_VALUE))
         );
+
+        jScrollPane2.setViewportView(jPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 386, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 494, Short.MAX_VALUE)
         );
 
         pack();
@@ -199,7 +231,11 @@ public class JDialMenu extends javax.swing.JDialog implements MouseListener, Act
     private javax.swing.JLabel jLblMenu2;
     private javax.swing.JLabel jLblMenu3;
     private javax.swing.JLabel jLblMenu4;
+    private javax.swing.JLabel jLblMenu5;
+    private javax.swing.JList<String> jLstOrden;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTxfMenu;
     // End of variables declaration//GEN-END:variables
 
@@ -207,13 +243,22 @@ public class JDialMenu extends javax.swing.JDialog implements MouseListener, Act
     public void mouseClicked(MouseEvent e) {
         Object obj = e.getSource();
         if (obj == jLblMenu1) {
-            jTxfMenu.setText(jLblMenu1.getText());
+            modelo.addElement("Arroz con pollo");
+            jLstOrden.setModel(modelo);
+            //jTxfMenu.setText("Arroz con pollo");
         } else if (obj == jLblMenu2) {
-            jTxfMenu.setText(jLblMenu2.getText());
+            modelo.addElement("Combo 1");
+            jLstOrden.setModel(modelo);
+//            jTxfMenu.setText
         } else if (obj == jLblMenu3) {
-            jTxfMenu.setText(jLblMenu3.getText());
+            modelo.addElement("Combo 2");
+            jLstOrden.setModel(modelo);
         } else if (obj == jLblMenu4) {
-            jTxfMenu.setText(jLblMenu4.getText());
+            modelo.addElement("almuerzo");
+            jLstOrden.setModel(modelo);
+        } else if (obj == jLblMenu5) {
+            modelo.addElement("Pastel Casero");
+            jLstOrden.setModel(modelo);
         }
 //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -240,6 +285,11 @@ public class JDialMenu extends javax.swing.JDialog implements MouseListener, Act
     @Override
     public void actionPerformed(ActionEvent e) {
         dispose();
+    }
+
+    @Override
+    public void valueChanged(ListSelectionEvent e) {
+        System.out.println(jLstOrden.getSelectedIndex());
     }
 
 }

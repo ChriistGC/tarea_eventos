@@ -21,6 +21,8 @@ import java.awt.event.WindowListener;
 import java.util.Random;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import javax.swing.event.MenuEvent;
 import javax.swing.event.MenuListener;
 
@@ -28,7 +30,7 @@ import javax.swing.event.MenuListener;
  *
  * @author kriz_
  */
-public class JFrmEventos extends javax.swing.JFrame implements WindowListener, ComponentListener, ActionListener, MenuListener, KeyListener, FocusListener {
+public class JFrmEventos extends javax.swing.JFrame implements WindowListener, ComponentListener, ActionListener, MenuListener, KeyListener, FocusListener, ChangeListener {
 
     /**
      * Creates new form JFrmEventos
@@ -36,6 +38,7 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
     public JFrmEventos() {
         initComponents();
         setLocationRelativeTo(null);
+        jRdBtnSpanish.setSelected(true);
         this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         addWindowListener(this);
         setBackground(Color.GREEN);
@@ -56,6 +59,9 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
         jBtnMenu.addKeyListener(this);
         jBtnBorrar.addKeyListener(this);
         jBtnAceptar.addFocusListener(this);
+        jRdBtnSpanish.addChangeListener(this);
+        jRdBtnEnglish.addChangeListener(this);
+        jRdBtnFrancais.addChangeListener(this);
         addComponentListener(this);
 
     }
@@ -66,12 +72,12 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
     public void xd(){
 //        jLabel1.setLocation((x/2)-15, jLabel1.getLocation().y);
         jLabel1.setFont(new java.awt.Font("Times New Roman", 3, x/20));
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 3, (x/13)-jLabel1.getFont().getSize()));
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 3, (x/13)-jLabel1.getFont().getSize()));
-        jLabel4.setFont(new java.awt.Font("Times New Roman", 3, (x/13)-jLabel1.getFont().getSize()));
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 3, (x/13)-jLabel1.getFont().getSize()));
-        jLabel6.setFont(new java.awt.Font("Times New Roman", 3, (x/13)-jLabel1.getFont().getSize()));
-        jLabel7.setFont(new java.awt.Font("Times New Roman", 3, (x/13)-jLabel1.getFont().getSize()));
+        jLblNombre.setFont(new java.awt.Font("Times New Roman", 3, (x/13)-jLabel1.getFont().getSize()));
+        jLblApellido.setFont(new java.awt.Font("Times New Roman", 3, (x/13)-jLabel1.getFont().getSize()));
+        jLblOrden.setFont(new java.awt.Font("Times New Roman", 3, (x/13)-jLabel1.getFont().getSize()));
+        jLblMtdoPago.setFont(new java.awt.Font("Times New Roman", 3, (x/13)-jLabel1.getFont().getSize()));
+        jLblNOrden1.setFont(new java.awt.Font("Times New Roman", 3, (x/13)-jLabel1.getFont().getSize()));
+        jLblCedula.setFont(new java.awt.Font("Times New Roman", 3, (x/13)-jLabel1.getFont().getSize()));
         jLblNOrden.setFont(new java.awt.Font("Times New Roman", 2, (x/13)-jLabel1.getFont().getSize()));
         jTxfNombre.setFont(new java.awt.Font("Times New Roman", 0, (x/13)-jLabel1.getFont().getSize()));
         jTxfApellido.setFont(new java.awt.Font("Times New Roman", 0, (x/13)-jLabel1.getFont().getSize()));
@@ -83,6 +89,9 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
         jBtnBorrar.setFont(new java.awt.Font("Times New Roman", 3, (x/13)-jLabel1.getFont().getSize()));
         jBtnMenu.setFont(new java.awt.Font("Times New Roman", 3, (x/13)-jLabel1.getFont().getSize()));
         jBtnMetPago.setFont(new java.awt.Font("Times New Roman", 3, (x/13)-jLabel1.getFont().getSize()));
+        jRdBtnSpanish.setFont(new java.awt.Font("Times New Roman", 3, (x/13)-jLabel1.getFont().getSize()));
+        jRdBtnEnglish.setFont(new java.awt.Font("Times New Roman", 3, (x/13)-jLabel1.getFont().getSize()));
+        jRdBtnFrancais.setFont(new java.awt.Font("Times New Roman", 3, (x/13)-jLabel1.getFont().getSize()));
     }
 
     /**
@@ -94,11 +103,12 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jLblNombre = new javax.swing.JLabel();
+        jLblApellido = new javax.swing.JLabel();
+        jLblOrden = new javax.swing.JLabel();
         jTxfNombre = new javax.swing.JTextField();
         jTxfApellido = new javax.swing.JTextField();
         jTxfCedula = new javax.swing.JTextField();
@@ -107,13 +117,17 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
         jBtnMetPago = new javax.swing.JButton();
         jBtnBorrar = new javax.swing.JButton();
         jBtnMenu = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
+        jLblCedula = new javax.swing.JLabel();
         jTxfOrden = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
+        jLblMtdoPago = new javax.swing.JLabel();
         jTxfMtdoPago = new javax.swing.JTextField();
         jLblNOrden = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jLblNOrden1 = new javax.swing.JLabel();
+        jRdBtnFrancais = new javax.swing.JRadioButton();
+        jRdBtnSpanish = new javax.swing.JRadioButton();
+        jRdBtnEnglish = new javax.swing.JRadioButton();
         jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu3 = new javax.swing.JMenu();
         jMhelp = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -124,14 +138,14 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
         jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 20)); // NOI18N
         jLabel1.setText("KrustyBurguer");
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel2.setText("Nombre:");
+        jLblNombre.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jLblNombre.setText("Nombre:");
 
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel3.setText("Apellido:");
+        jLblApellido.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jLblApellido.setText("Apellido:");
 
-        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel4.setText("Su orden es:");
+        jLblOrden.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jLblOrden.setText("Su orden es:");
 
         jTxfNombre.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
 
@@ -154,9 +168,14 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
         });
 
         jBtnMenu.setText("Menú");
+        jBtnMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnMenuActionPerformed(evt);
+            }
+        });
 
-        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel7.setText("Cédula:");
+        jLblCedula.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jLblCedula.setText("Cédula:");
 
         jTxfOrden.setEditable(false);
         jTxfOrden.addActionListener(new java.awt.event.ActionListener() {
@@ -165,112 +184,144 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel5.setText("Método de pago:");
+        jLblMtdoPago.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jLblMtdoPago.setText("Método de pago:");
 
         jTxfMtdoPago.setEditable(false);
 
         jLblNOrden.setText("-----");
 
-        jLabel6.setText("N° Orden");
+        jLblNOrden1.setText("N° Orden");
+
+        jRdBtnFrancais.setText("Français");
+        buttonGroup1.add(jRdBtnFrancais);
+        jRdBtnFrancais.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRdBtnFrancaisActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(jRdBtnSpanish);
+        jRdBtnSpanish.setText("Español");
+        jRdBtnSpanish.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRdBtnSpanishActionPerformed(evt);
+            }
+        });
+
+        jRdBtnEnglish.setText("English");
+        buttonGroup1.add(jRdBtnEnglish);
+        jRdBtnEnglish.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRdBtnEnglishActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 174, Short.MAX_VALUE)
+                .addComponent(jLblNOrden1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLblNOrden)
+                .addGap(88, 88, 88))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLblNombre)
+                        .addComponent(jLblApellido))
+                    .addComponent(jLblCedula))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTxfNombre)
+                    .addComponent(jTxfApellido)
+                    .addComponent(jTxfCedula))
+                .addGap(81, 81, 81))
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTxfNombre))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jTxfApellido))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(jTxfCedula))))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel6)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLblNOrden)
-                                .addGap(114, 114, 114)))
-                        .addGap(64, 64, 64))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTxfMtdoPago)
-                        .addGap(18, 18, 18)
-                        .addComponent(jBtnMetPago)
-                        .addGap(47, 47, 47))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(158, Short.MAX_VALUE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jBtnAceptar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jBtnCancelar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jBtnBorrar)
-                        .addGap(67, 67, 67))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTxfOrden)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jBtnMenu)
-                .addGap(26, 26, 26))
+                        .addComponent(jBtnCancelar)
+                        .addGap(10, 10, 10))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jRdBtnEnglish)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jRdBtnFrancais)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jBtnBorrar)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jRdBtnSpanish)
+                        .addContainerGap())))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLblOrden)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTxfOrden)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jBtnMenu))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLblMtdoPago)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTxfMtdoPago)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jBtnMetPago)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel6)
-                        .addComponent(jLblNOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLblNOrden1)
+                        .addComponent(jLblNOrden)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+                    .addComponent(jLblNombre)
                     .addComponent(jTxfNombre))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTxfApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
+                    .addComponent(jLblApellido))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLblCedula)
+                    .addComponent(jTxfCedula))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTxfCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTxfMtdoPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jBtnMetPago)))
-                .addGap(25, 25, 25)
+                    .addComponent(jLblMtdoPago)
+                    .addComponent(jTxfMtdoPago)
+                    .addComponent(jBtnMetPago))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTxfOrden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLblOrden)
+                    .addComponent(jTxfOrden)
                     .addComponent(jBtnMenu))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBtnAceptar)
                     .addComponent(jBtnCancelar)
                     .addComponent(jBtnBorrar))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRdBtnEnglish)
+                    .addComponent(jRdBtnFrancais)
+                    .addComponent(jRdBtnSpanish))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jMenu3.setText("Opciones");
+        jMenuBar1.add(jMenu3);
 
         jMhelp.setText("Help");
         jMenuBar1.add(jMhelp);
@@ -291,9 +342,25 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jRdBtnEnglishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRdBtnEnglishActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRdBtnEnglishActionPerformed
+
+    private void jRdBtnSpanishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRdBtnSpanishActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRdBtnSpanishActionPerformed
+
+    private void jRdBtnFrancaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRdBtnFrancaisActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRdBtnFrancaisActionPerformed
+
     private void jTxfOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxfOrdenActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTxfOrdenActionPerformed
+
+    private void jBtnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnMenuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBtnMenuActionPerformed
 
     private void jBtnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnBorrarActionPerformed
         // TODO add your handling code here:
@@ -339,22 +406,27 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jBtnAceptar;
     private javax.swing.JButton jBtnBorrar;
     private javax.swing.JButton jBtnCancelar;
     private javax.swing.JButton jBtnMenu;
     private javax.swing.JButton jBtnMetPago;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLblApellido;
+    private javax.swing.JLabel jLblCedula;
+    private javax.swing.JLabel jLblMtdoPago;
     private javax.swing.JLabel jLblNOrden;
+    private javax.swing.JLabel jLblNOrden1;
+    private javax.swing.JLabel jLblNombre;
+    private javax.swing.JLabel jLblOrden;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMhelp;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JRadioButton jRdBtnEnglish;
+    private javax.swing.JRadioButton jRdBtnFrancais;
+    private javax.swing.JRadioButton jRdBtnSpanish;
     private javax.swing.JTextField jTxfApellido;
     private javax.swing.JTextField jTxfCedula;
     private javax.swing.JTextField jTxfMtdoPago;
@@ -551,6 +623,55 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
                 int n = (int) (rnd.nextDouble() * 100 + 1000);
                 jLblNOrden.setText(String.valueOf(n));
             }
+        }
+    }
+
+    @Override
+    public void stateChanged(ChangeEvent e) {
+        if(jRdBtnSpanish.isSelected()==true){
+            jRdBtnEnglish.setSelected(false);
+            jRdBtnFrancais.setSelected(false);
+            jLblNombre.setText("Nombre:");
+            jLblApellido.setText("Apellido:");
+            jLblCedula.setText("Cedula:");
+            jLblMtdoPago.setText("Método de pago:");
+            jLblOrden.setText("Su orden es");
+            jLblNOrden1.setText("N°");
+            jBtnAceptar.setText("Aceptar");
+            jBtnCancelar.setText("Cancelar");
+            jBtnMetPago.setText("Método de Pago");
+            jBtnMenu.setText("Menú");
+            jBtnBorrar.setText("Borrar Datos");
+        }
+        if(jRdBtnEnglish.isSelected()==true){
+            jRdBtnSpanish.setSelected(false);
+            jRdBtnFrancais.setSelected(false);
+            jLblNombre.setText("Name:");
+            jLblApellido.setText("Last name:");
+            jLblCedula.setText("Identification:");
+            jLblMtdoPago.setText("Payment method:");
+            jLblOrden.setText("Your order is");
+            jLblNOrden1.setText("N°");
+            jBtnAceptar.setText("Accept");
+            jBtnCancelar.setText("Cancel");
+            jBtnMetPago.setText("Payment method");
+            jBtnMenu.setText("Menu");
+            jBtnBorrar.setText("Delete data");
+        }
+        if(jRdBtnFrancais.isSelected()==true){
+            jRdBtnSpanish.setSelected(false);
+            jRdBtnFrancais.setSelected(false);
+            jLblNombre.setText("Nom:");
+            jLblApellido.setText("Le nom:");
+            jLblCedula.setText("Identité:");
+            jLblMtdoPago.setText("Procédé de paiement:");
+            jLblOrden.setText("Votre commande est");
+            jLblNOrden1.setText("N°");
+            jBtnAceptar.setText("Accepter");
+            jBtnCancelar.setText("Annuler");
+            jBtnMetPago.setText("Procédé de paiement");
+            jBtnMenu.setText("Menu");
+            jBtnBorrar.setText("Suprimmer les données");
         }
     }
 
