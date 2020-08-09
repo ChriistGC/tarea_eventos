@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
     <Component class="javax.swing.ButtonGroup" name="buttonGroup1">
     </Component>
@@ -10,6 +10,29 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Opciones"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jMnImPagWb">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Pagina Web"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jMnImPagWb.addMenuDragMouseListener(this);&#xa;jMnImPagWb.addActionListener(new ActionListener(){&#xa;    @Override&#xa;    public void actionPerformed(ActionEvent e) {&#xa;        jDialPagWeb dialo=new jDialPagWeb(null,true);&#xa;        dialo.setVisible(true);&#xa;        dialo.pack();&#xa;}&#xa;});"/>
+              </AuxValues>
+            </MenuItem>
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator1">
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMnImSalir">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Salir"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMnImSalirActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jMnImSalir.addMenuDragMouseListener(this);&#xa;jMnImSalir.addActionListener(new ActionListener(){&#xa;    @Override&#xa;    public void actionPerformed(ActionEvent e) {&#xa;        int valor = JOptionPane.showConfirmDialog(null, &quot;&#xbf;Desea salir?&quot;, &quot;Mensaje del Sistema&quot;,&#xa;                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);&#xa;        if (valor == JOptionPane.YES_OPTION) {&#xa;            System.exit(0);&#xa;        }&#xa;}&#xa;});"/>
+              </AuxValues>
+            </MenuItem>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMhelp">
           <Properties>

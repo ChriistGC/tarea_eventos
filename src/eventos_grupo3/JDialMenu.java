@@ -13,7 +13,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
@@ -63,10 +62,7 @@ public class JDialMenu extends javax.swing.JDialog implements MouseListener, Act
         Image img5 = new ImageIcon(getClass().getResource("/image/pastel casero.png")).getImage();
         jLblMenu5.setIcon(new ImageIcon(img5.getScaledInstance(jLblMenu5.getWidth(), jLblMenu5.getHeight(), Image.SCALE_SMOOTH)));
     }
-
-//    public String get_Msg() {
-//        //return jTxfMtdoPago.getText();
-//    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -275,23 +271,16 @@ public class JDialMenu extends javax.swing.JDialog implements MouseListener, Act
     }
 
     @Override
-    public void mousePressed(MouseEvent e) {
-    }
+    public void mousePressed(MouseEvent e) {}
 
     @Override
-    public void mouseReleased(MouseEvent e) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    public void mouseReleased(MouseEvent e) {}
 
     @Override
-    public void mouseEntered(MouseEvent e) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    public void mouseEntered(MouseEvent e) {}
 
     @Override
-    public void mouseExited(MouseEvent e) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    public void mouseExited(MouseEvent e) {}
 
     @Override
     public void actionPerformed(ActionEvent e) {

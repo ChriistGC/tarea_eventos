@@ -5,7 +5,6 @@
  */
 package eventos_grupo3;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
@@ -23,6 +22,8 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import javax.swing.event.MenuDragMouseEvent;
+import javax.swing.event.MenuDragMouseListener;
 import javax.swing.event.MenuEvent;
 import javax.swing.event.MenuListener;
 
@@ -30,7 +31,7 @@ import javax.swing.event.MenuListener;
  *
  * @author kriz_
  */
-public class JFrmEventos extends javax.swing.JFrame implements WindowListener, ComponentListener, ActionListener, MenuListener, KeyListener, FocusListener, ChangeListener {
+public class JFrmEventos extends javax.swing.JFrame implements WindowListener, ComponentListener, ActionListener, MenuListener, KeyListener, FocusListener, ChangeListener, MenuDragMouseListener {
 
     /**
      * Creates new form JFrmEventos
@@ -127,6 +128,9 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
         jRdBtnEnglish = new javax.swing.JRadioButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
+        jMnImPagWb = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        jMnImSalir = new javax.swing.JMenuItem();
         jMhelp = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -320,6 +324,39 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
         );
 
         jMenu3.setText("Opciones");
+
+        jMnImPagWb.setText("Pagina Web");
+        jMenu3.add(jMnImPagWb);
+        jMnImPagWb.addMenuDragMouseListener(this);
+        jMnImPagWb.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jDialPagWeb dialo=new jDialPagWeb(null,true);
+                dialo.setVisible(true);
+                dialo.pack();
+            }
+        });
+        jMenu3.add(jSeparator1);
+
+        jMnImSalir.setText("Salir");
+        jMnImSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMnImSalirActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMnImSalir);
+        jMnImSalir.addMenuDragMouseListener(this);
+        jMnImSalir.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int valor = JOptionPane.showConfirmDialog(null, "¿Desea salir?", "Mensaje del Sistema",
+                    JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                if (valor == JOptionPane.YES_OPTION) {
+                    System.exit(0);
+                }
+            }
+        });
+
         jMenuBar1.add(jMenu3);
 
         jMhelp.setText("Help");
@@ -368,6 +405,10 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
     private void jBtnMetPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnMetPagoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jBtnMetPagoActionPerformed
+
+    private void jMnImSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMnImSalirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMnImSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -422,10 +463,13 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMhelp;
+    private javax.swing.JMenuItem jMnImPagWb;
+    private javax.swing.JMenuItem jMnImSalir;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButton jRdBtnEnglish;
     private javax.swing.JRadioButton jRdBtnFrancais;
     private javax.swing.JRadioButton jRdBtnSpanish;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JTextField jTxfApellido;
     private javax.swing.JTextField jTxfCedula;
     private javax.swing.JTextField jTxfMtdoPago;
@@ -443,34 +487,22 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
     }
 
     @Override
-    public void windowOpened(WindowEvent e) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    public void windowOpened(WindowEvent e) {}
 
     @Override
-    public void windowClosed(WindowEvent e) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    public void windowClosed(WindowEvent e) {}
 
     @Override
-    public void windowIconified(WindowEvent e) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    public void windowIconified(WindowEvent e) {}
 
     @Override
-    public void windowDeiconified(WindowEvent e) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    public void windowDeiconified(WindowEvent e) {}
 
     @Override
-    public void windowActivated(WindowEvent e) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    public void windowActivated(WindowEvent e) {}
 
     @Override
-    public void windowDeactivated(WindowEvent e) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    public void windowDeactivated(WindowEvent e) {}
 
     @Override
     public void componentResized(ComponentEvent e) {
@@ -482,19 +514,13 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
     }
 
     @Override
-    public void componentMoved(ComponentEvent e) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    public void componentMoved(ComponentEvent e) {}
 
     @Override
-    public void componentShown(ComponentEvent e) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    public void componentShown(ComponentEvent e) {}
 
     @Override
-    public void componentHidden(ComponentEvent e) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    public void componentHidden(ComponentEvent e) {}
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -511,10 +537,6 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
                     cuadroDialogo.setTextJtxfOrden(jTxfOrden.getText());
                     cuadroDialogo.pack();
                     cuadroDialogo.setVisible(true);
-//                    String datos = "\nNombre: " + jTxfNombre.getText() + "\nApellido: " + jTxfApellido.getText()
-//                            + "\nCedula: " + jTxfCedula.getText() + "\nMetodo de pago: " + jTxfMtdoPago.getText()
-//                            + "\nOrden:" + jTxfOrden.getText();
-//                    JOptionPane.showMessageDialog(null, "Su pedido es: " + datos, "Sistema", JOptionPane.INFORMATION_MESSAGE);
                 }
             } else {
                 JOptionPane.showMessageDialog(null, "No estan todos los campos llenos", "Sistema", JOptionPane.ERROR_MESSAGE);
@@ -545,7 +567,6 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
     @Override
     public void menuSelected(MenuEvent e) {
         Object obj = e.getSource();
-
         if (obj == jMhelp) {
             int n = JOptionPane.showConfirmDialog(null, "¿Necesita ayuda?", "Mensaje del Sistema",
                     JOptionPane.YES_NO_OPTION);
@@ -557,19 +578,13 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
     }
 
     @Override
-    public void menuDeselected(MenuEvent e) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    public void menuDeselected(MenuEvent e) {}
 
     @Override
-    public void menuCanceled(MenuEvent e) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    public void menuCanceled(MenuEvent e) {}
 
     @Override
-    public void keyTyped(KeyEvent e) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    public void keyTyped(KeyEvent e) {}
 
     @Override
     public void keyPressed(KeyEvent e) {
@@ -612,9 +627,7 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
     }
 
     @Override
-    public void keyReleased(KeyEvent e) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    public void keyReleased(KeyEvent e) {}
 
     @Override
     public void focusGained(FocusEvent e) {
@@ -679,6 +692,26 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
             jBtnMenu.setText("Menu");
             jBtnBorrar.setText("Suprimmer les données");
         }
+    }
+
+    @Override
+    public void menuDragMouseEntered(MenuDragMouseEvent e) {
+        System.out.println("Arrastrando dentro del MenuItem");
+    }
+
+    @Override
+    public void menuDragMouseExited(MenuDragMouseEvent e) {
+        System.out.println("Arrastrando fuera del MenuItem");
+    }
+
+    @Override
+    public void menuDragMouseDragged(MenuDragMouseEvent e) {
+        System.out.println("Arrastrando dentro del MenuItem");
+    }
+
+    @Override
+    public void menuDragMouseReleased(MenuDragMouseEvent e) {
+        System.out.println("El puntero soltó el menú que estaba arrastrando");
     }
 
 }

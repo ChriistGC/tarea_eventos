@@ -63,7 +63,7 @@ public class JDialFact extends javax.swing.JDialog implements AdjustmentListener
     private void initComponents() {
 
         jPopupMenu1 = new javax.swing.JPopupMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        Hola = new javax.swing.JMenuItem();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
         jLblNombre = new javax.swing.JLabel();
@@ -79,11 +79,11 @@ public class JDialFact extends javax.swing.JDialog implements AdjustmentListener
         jMenuBar1 = new javax.swing.JMenuBar();
         JMexit = new javax.swing.JMenu();
 
-        jMenuItem1.setText("jMenuItem1");
-        jPopupMenu1.add(jMenuItem1);
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        Hola.setText("jMenuItem1");
+        jPopupMenu1.add(Hola);
+        Hola.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                HolaActionPerformed(evt);
             }
         });
 
@@ -207,9 +207,7 @@ public class JDialFact extends javax.swing.JDialog implements AdjustmentListener
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1)
-                .addGap(0, 1, Short.MAX_VALUE))
+            .addComponent(jScrollPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -235,9 +233,9 @@ public class JDialFact extends javax.swing.JDialog implements AdjustmentListener
         // TODO add your handling code here:
     }//GEN-LAST:event_jTxfPedidoActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void HolaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HolaActionPerformed
             JOptionPane.showMessageDialog(null, "Gracias por visitarnos", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_HolaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -282,6 +280,7 @@ public class JDialFact extends javax.swing.JDialog implements AdjustmentListener
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem Hola;
     private javax.swing.JMenu JMexit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLblCedula;
@@ -289,7 +288,6 @@ public class JDialFact extends javax.swing.JDialog implements AdjustmentListener
     private javax.swing.JLabel jLblNombre;
     private javax.swing.JLabel jLblPedido;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollBar jScBrZoom;
@@ -336,8 +334,7 @@ public class JDialFact extends javax.swing.JDialog implements AdjustmentListener
     }
 
     @Override
-    public void menuKeyTyped(MenuKeyEvent e) {
-    }
+    public void menuKeyTyped(MenuKeyEvent e) {}
 
     @Override
     public void menuKeyPressed(MenuKeyEvent e) {
@@ -348,11 +345,9 @@ public class JDialFact extends javax.swing.JDialog implements AdjustmentListener
               System.exit(0);         
        }
     }
-    
-
+   
     @Override
-    public void menuKeyReleased(MenuKeyEvent e) {
-    }
+    public void menuKeyReleased(MenuKeyEvent e) {}
 
     @Override
     public void popupMenuWillBecomeVisible(PopupMenuEvent e) {
