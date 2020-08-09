@@ -246,7 +246,7 @@ public class JDialMetPago extends javax.swing.JDialog implements ItemListener, A
         f.setVisible(true);
         f.setLayout(new BorderLayout());
         JLabel label = new JLabel("Un Asesor lo atendera inmediatamente");
-        label.setLocation(120, 80);
+        f.add(label,BorderLayout.CENTER);
         jPanel2.add(f);
     }
 
@@ -264,7 +264,6 @@ public class JDialMetPago extends javax.swing.JDialog implements ItemListener, A
             } else if (pos < 0) {
                 pos = 0;
             }
-
         }
     }
 
