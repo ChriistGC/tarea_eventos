@@ -5,11 +5,23 @@
  */
 package eventos_grupo3;
 
+import java.awt.Dimension;
+import java.awt.event.AdjustmentEvent;
+import java.awt.event.AdjustmentListener;
+import java.awt.event.KeyEvent;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JPopupMenu;
+import javax.swing.event.MenuKeyEvent;
+import javax.swing.event.MenuKeyListener;
+import javax.swing.event.PopupMenuEvent;
+import javax.swing.event.PopupMenuListener;
+
 /**
  *
  * @author kriz_
  */
-public class JDialFact extends javax.swing.JDialog {
+public class JDialFact extends javax.swing.JDialog implements AdjustmentListener, MenuKeyListener,PopupMenuListener {
 
     /**
      * Creates new form JDialFact
@@ -17,8 +29,30 @@ public class JDialFact extends javax.swing.JDialog {
     public JDialFact(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setLocationRelativeTo(null);
+        jScBrZoom.addAdjustmentListener(this);
+        JMexit.addMenuKeyListener(this);
+        jPopupMenu1.addPopupMenuListener(this);
     }
 
+    int i;
+      
+    public void setTextJtxfNombres(String nombre, String apellido) {
+        jTxfNombre.setText(nombre+" "+apellido);
+    }
+
+    public void setTextJtxfCedula(String cedula) {
+        jTxfCedula.setText(cedula);
+    }
+
+    public void setTextJtxfMtdoPago(String mtdoPago) {
+        jTxfMtdoPago.setText(mtdoPago);
+    }
+
+    public void setTextJtxfOrden(String pedido) {
+        jTxfPedido.setText(pedido);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,25 +62,182 @@ public class JDialFact extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jPanel1 = new javax.swing.JPanel();
+        jLblNombre = new javax.swing.JLabel();
+        jLblCedula = new javax.swing.JLabel();
+        jLblMtdoPago = new javax.swing.JLabel();
+        jLblPedido = new javax.swing.JLabel();
+        jTxfMtdoPago = new javax.swing.JTextField();
+        jTxfCedula = new javax.swing.JTextField();
+        jTxfNombre = new javax.swing.JTextField();
+        jTxfPedido = new javax.swing.JTextField();
+        jScBrZoom = new javax.swing.JScrollBar();
         jLabel1 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        JMexit = new javax.swing.JMenu();
 
-        jLabel1.setText("jLabel1");
+        jMenuItem1.setText("jMenuItem1");
+        jPopupMenu1.add(jMenuItem1);
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        jPanel1.setPreferredSize(new java.awt.Dimension(348, 250));
+
+        jLblNombre.setText("Nombres");
+
+        jLblCedula.setText("Cédula");
+
+        jLblMtdoPago.setText("Método de pago");
+
+        jLblPedido.setText("Pedido");
+
+        jTxfMtdoPago.setEditable(false);
+        jTxfMtdoPago.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTxfMtdoPagoActionPerformed(evt);
+            }
+        });
+
+        jTxfCedula.setEditable(false);
+        jTxfCedula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTxfCedulaActionPerformed(evt);
+            }
+        });
+
+        jTxfNombre.setEditable(false);
+        jTxfNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTxfNombreActionPerformed(evt);
+            }
+        });
+
+        jTxfPedido.setEditable(false);
+        jTxfPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTxfPedidoActionPerformed(evt);
+            }
+        });
+
+        jScBrZoom.setMaximum(30);
+        jScBrZoom.setMinimum(14);
+        jScBrZoom.setOrientation(javax.swing.JScrollBar.HORIZONTAL);
+
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 36)); // NOI18N
+        jLabel1.setText("Factura");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jTxfPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLblNombre)
+                                .addComponent(jLblCedula))
+                            .addGap(32, 32, 32)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jTxfCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTxfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLblMtdoPago)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jTxfMtdoPago, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLblPedido))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(160, 160, 160)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(77, 77, 77)
+                        .addComponent(jScBrZoom, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLblNombre)
+                    .addComponent(jTxfNombre))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLblCedula)
+                    .addComponent(jTxfCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTxfMtdoPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLblMtdoPago))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLblPedido)
+                    .addComponent(jTxfPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScBrZoom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(118, 118, 118))
+        );
+
+        jScrollPane1.setViewportView(jPanel1);
+        jPanel1.setComponentPopupMenu(jPopupMenu1);
+
+        JMexit.setText("Exit");
+        jMenuBar1.add(JMexit);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 283, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jScrollPane1)
+                .addGap(0, 1, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 168, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTxfNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxfNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTxfNombreActionPerformed
+
+    private void jTxfCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxfCedulaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTxfCedulaActionPerformed
+
+    private void jTxfMtdoPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxfMtdoPagoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTxfMtdoPagoActionPerformed
+
+    private void jTxfPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxfPedidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTxfPedidoActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+            JOptionPane.showMessageDialog(null, "Gracias por visitarnos", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -91,6 +282,90 @@ public class JDialFact extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu JMexit;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLblCedula;
+    private javax.swing.JLabel jLblMtdoPago;
+    private javax.swing.JLabel jLblNombre;
+    private javax.swing.JLabel jLblPedido;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPopupMenu jPopupMenu1;
+    private javax.swing.JScrollBar jScBrZoom;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTxfCedula;
+    private javax.swing.JTextField jTxfMtdoPago;
+    private javax.swing.JTextField jTxfNombre;
+    private javax.swing.JTextField jTxfPedido;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void adjustmentValueChanged(AdjustmentEvent e) {
+        int n = e.getValue();
+        if (n >= i) {
+            if (n >= 14) {
+                jLblNombre.setFont(new java.awt.Font("Times New Roman", 3, n));
+                jLblMtdoPago.setFont(new java.awt.Font("Times New Roman", 3, n));
+                jLblCedula.setFont(new java.awt.Font("Times New Roman", 3, n));
+                jLblPedido.setFont(new java.awt.Font("Times New Roman", 3, n));
+                jTxfNombre.setFont(new java.awt.Font("Times New Roman", 3, n));
+                jTxfCedula.setFont(new java.awt.Font("Times New Roman", 3, n));
+                jTxfMtdoPago.setFont(new java.awt.Font("Times New Roman", 3, n));
+                jTxfPedido.setFont(new java.awt.Font("Times New Roman", 3, n));
+                i = n;
+                Dimension screenSize = new Dimension((jPanel1.getSize().width) + 5, (jPanel1.getSize().height) + 5);
+                jPanel1.setPreferredSize(screenSize);
+            }
+        } else if (n < i) {
+            if (n >= 14) {
+                jLblNombre.setFont(new java.awt.Font("Times New Roman", 3, n));
+                jLblMtdoPago.setFont(new java.awt.Font("Times New Roman", 3, n));
+                jLblCedula.setFont(new java.awt.Font("Times New Roman", 3, n));
+                jLblPedido.setFont(new java.awt.Font("Times New Roman", 3, n));
+                jTxfNombre.setFont(new java.awt.Font("Times New Roman", 3, n));
+                jTxfCedula.setFont(new java.awt.Font("Times New Roman", 3, n));
+                jTxfMtdoPago.setFont(new java.awt.Font("Times New Roman", 3, n));
+                jTxfPedido.setFont(new java.awt.Font("Times New Roman", 3, n));
+                i = n;
+                Dimension screenSize = new Dimension((jPanel1.getSize().width) - 5, (jPanel1.getSize().height) - 5);
+                jPanel1.setPreferredSize(screenSize);
+            }
+        }
+
+    }
+
+    @Override
+    public void menuKeyTyped(MenuKeyEvent e) {
+    }
+
+    @Override
+    public void menuKeyPressed(MenuKeyEvent e) {
+        Object obj = e.getSource();
+        System.out.println("Key pressed:" );
+
+       if(e.getKeyCode()== KeyEvent.VK_ENTER  ){
+              System.exit(0);         
+       }
+    }
+    
+
+    @Override
+    public void menuKeyReleased(MenuKeyEvent e) {
+    }
+
+    @Override
+    public void popupMenuWillBecomeVisible(PopupMenuEvent e) {
+        System.out.println("PoputMenu visible");
+    }
+
+    @Override
+    public void popupMenuWillBecomeInvisible(PopupMenuEvent e) {
+        System.out.println("PoputMenu invisible");
+    }
+
+    @Override
+    public void popupMenuCanceled(PopupMenuEvent e) {
+        System.out.println("PoputMenu Cancelado");
+    }
 }

@@ -68,30 +68,29 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
 
     private int x;
     private int y;
-
-    public void xd(){
-//        jLabel1.setLocation((x/2)-15, jLabel1.getLocation().y);
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 3, x/20));
-        jLblNombre.setFont(new java.awt.Font("Times New Roman", 3, (x/13)-jLabel1.getFont().getSize()));
-        jLblApellido.setFont(new java.awt.Font("Times New Roman", 3, (x/13)-jLabel1.getFont().getSize()));
-        jLblOrden.setFont(new java.awt.Font("Times New Roman", 3, (x/13)-jLabel1.getFont().getSize()));
-        jLblMtdoPago.setFont(new java.awt.Font("Times New Roman", 3, (x/13)-jLabel1.getFont().getSize()));
-        jLblNOrden1.setFont(new java.awt.Font("Times New Roman", 3, (x/13)-jLabel1.getFont().getSize()));
-        jLblCedula.setFont(new java.awt.Font("Times New Roman", 3, (x/13)-jLabel1.getFont().getSize()));
-        jLblNOrden.setFont(new java.awt.Font("Times New Roman", 2, (x/13)-jLabel1.getFont().getSize()));
-        jTxfNombre.setFont(new java.awt.Font("Times New Roman", 0, (x/13)-jLabel1.getFont().getSize()));
-        jTxfApellido.setFont(new java.awt.Font("Times New Roman", 0, (x/13)-jLabel1.getFont().getSize()));
-        jTxfCedula.setFont(new java.awt.Font("Times New Roman", 0, (x/13)-jLabel1.getFont().getSize()));
-        jTxfMtdoPago.setFont(new java.awt.Font("Times New Roman", 0, (x/13)-jLabel1.getFont().getSize()));
-        jTxfOrden.setFont(new java.awt.Font("Times New Roman", 0, (x/13)-jLabel1.getFont().getSize()));
-        jBtnAceptar.setFont(new java.awt.Font("Times New Roman", 3, (x/13)-jLabel1.getFont().getSize()));
-        jBtnCancelar.setFont(new java.awt.Font("Times New Roman", 3, (x/13)-jLabel1.getFont().getSize()));
-        jBtnBorrar.setFont(new java.awt.Font("Times New Roman", 3, (x/13)-jLabel1.getFont().getSize()));
-        jBtnMenu.setFont(new java.awt.Font("Times New Roman", 3, (x/13)-jLabel1.getFont().getSize()));
-        jBtnMetPago.setFont(new java.awt.Font("Times New Roman", 3, (x/13)-jLabel1.getFont().getSize()));
-        jRdBtnSpanish.setFont(new java.awt.Font("Times New Roman", 3, (x/13)-jLabel1.getFont().getSize()));
-        jRdBtnEnglish.setFont(new java.awt.Font("Times New Roman", 3, (x/13)-jLabel1.getFont().getSize()));
-        jRdBtnFrancais.setFont(new java.awt.Font("Times New Roman", 3, (x/13)-jLabel1.getFont().getSize()));
+    
+    public void setFont() {
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 3, x / 20));
+        jLblNombre.setFont(new java.awt.Font("Times New Roman", 3, (x / 13) - jLabel1.getFont().getSize()));
+        jLblApellido.setFont(new java.awt.Font("Times New Roman", 3, (x / 13) - jLabel1.getFont().getSize()));
+        jLblOrden.setFont(new java.awt.Font("Times New Roman", 3, (x / 13) - jLabel1.getFont().getSize()));
+        jLblMtdoPago.setFont(new java.awt.Font("Times New Roman", 3, (x / 13) - jLabel1.getFont().getSize()));
+        jLblNOrden1.setFont(new java.awt.Font("Times New Roman", 3, (x / 13) - jLabel1.getFont().getSize()));
+        jLblCedula.setFont(new java.awt.Font("Times New Roman", 3, (x / 13) - jLabel1.getFont().getSize()));
+        jLblNOrden.setFont(new java.awt.Font("Times New Roman", 2, (x / 13) - jLabel1.getFont().getSize()));
+        jTxfNombre.setFont(new java.awt.Font("Times New Roman", 0, (x / 13) - jLabel1.getFont().getSize()));
+        jTxfApellido.setFont(new java.awt.Font("Times New Roman", 0, (x / 13) - jLabel1.getFont().getSize()));
+        jTxfCedula.setFont(new java.awt.Font("Times New Roman", 0, (x / 13) - jLabel1.getFont().getSize()));
+        jTxfMtdoPago.setFont(new java.awt.Font("Times New Roman", 0, (x / 13) - jLabel1.getFont().getSize()));
+        jTxfOrden.setFont(new java.awt.Font("Times New Roman", 0, (x / 13) - jLabel1.getFont().getSize()));
+        jBtnAceptar.setFont(new java.awt.Font("Times New Roman", 3, (x / 13) - jLabel1.getFont().getSize()));
+        jBtnCancelar.setFont(new java.awt.Font("Times New Roman", 3, (x / 13) - jLabel1.getFont().getSize()));
+        jBtnBorrar.setFont(new java.awt.Font("Times New Roman", 3, (x / 13) - jLabel1.getFont().getSize()));
+        jBtnMenu.setFont(new java.awt.Font("Times New Roman", 3, (x / 13) - jLabel1.getFont().getSize()));
+        jBtnMetPago.setFont(new java.awt.Font("Times New Roman", 3, (x / 13) - jLabel1.getFont().getSize()));
+        jRdBtnSpanish.setFont(new java.awt.Font("Times New Roman", 3, (x / 13) - jLabel1.getFont().getSize()));
+        jRdBtnEnglish.setFont(new java.awt.Font("Times New Roman", 3, (x / 13) - jLabel1.getFont().getSize()));
+        jRdBtnFrancais.setFont(new java.awt.Font("Times New Roman", 3, (x / 13) - jLabel1.getFont().getSize()));
     }
 
     /**
@@ -478,8 +477,8 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
         Component c = e.getComponent();
         x = c.getSize().width;
         y = c.getSize().height;
-        
-        xd();
+
+        setFont();
     }
 
     @Override
@@ -505,10 +504,17 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
                 int n = JOptionPane.showConfirmDialog(null, "¿Desea grabar los datos?", "Mensaje del Sistema",
                         JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
                 if (n == JOptionPane.OK_OPTION) {
-                    String datos = "\nNombre: " + jTxfNombre.getText() + "\nApellido: " + jTxfApellido.getText()
-                            + "\nCedula: " + jTxfCedula.getText() + "\nMetodo de pago: " + jTxfMtdoPago.getText()
-                            + "\nOrden:" + jTxfOrden.getText();
-                    JOptionPane.showMessageDialog(null, "Su pedido es: " + datos, "Sistema", JOptionPane.INFORMATION_MESSAGE);
+                    JDialFact cuadroDialogo = new JDialFact(this, true);
+                    cuadroDialogo.setTextJtxfNombres(jTxfNombre.getText(), jTxfApellido.getText());
+                    cuadroDialogo.setTextJtxfCedula(jTxfCedula.getText());
+                    cuadroDialogo.setTextJtxfMtdoPago(jTxfMtdoPago.getText());
+                    cuadroDialogo.setTextJtxfOrden(jTxfOrden.getText());
+                    cuadroDialogo.pack();
+                    cuadroDialogo.setVisible(true);
+//                    String datos = "\nNombre: " + jTxfNombre.getText() + "\nApellido: " + jTxfApellido.getText()
+//                            + "\nCedula: " + jTxfCedula.getText() + "\nMetodo de pago: " + jTxfMtdoPago.getText()
+//                            + "\nOrden:" + jTxfOrden.getText();
+//                    JOptionPane.showMessageDialog(null, "Su pedido es: " + datos, "Sistema", JOptionPane.INFORMATION_MESSAGE);
                 }
             } else {
                 JOptionPane.showMessageDialog(null, "No estan todos los campos llenos", "Sistema", JOptionPane.ERROR_MESSAGE);
@@ -573,7 +579,7 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
                 if (!jTxfNombre.getText().isEmpty() && !jTxfApellido.getText().isEmpty() && !jTxfCedula.getText().isEmpty() && !jTxfMtdoPago.getText().isEmpty() && !jTxfOrden.getText().isEmpty()) {
                     int n = JOptionPane.showConfirmDialog(null, "¿Desea grabar los datos?", "Mensaje del Sistema",
                             JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
-                    if (n == JOptionPane.OK_OPTION ) {
+                    if (n == JOptionPane.OK_OPTION) {
                         String datos = "\nNombre: " + jTxfNombre.getText() + "\nApellido: " + jTxfApellido.getText()
                                 + "\nCedula: " + jTxfCedula.getText() + "\nMetodo de pago: " + jTxfMtdoPago.getText()
                                 + "\nOrden:" + jTxfOrden.getText();
@@ -628,7 +634,7 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
 
     @Override
     public void stateChanged(ChangeEvent e) {
-        if(jRdBtnSpanish.isSelected()==true){
+        if (jRdBtnSpanish.isSelected() == true) {
             jRdBtnEnglish.setSelected(false);
             jRdBtnFrancais.setSelected(false);
             jLblNombre.setText("Nombre:");
@@ -643,7 +649,7 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
             jBtnMenu.setText("Menú");
             jBtnBorrar.setText("Borrar Datos");
         }
-        if(jRdBtnEnglish.isSelected()==true){
+        if (jRdBtnEnglish.isSelected() == true) {
             jRdBtnSpanish.setSelected(false);
             jRdBtnFrancais.setSelected(false);
             jLblNombre.setText("Name:");
@@ -658,7 +664,7 @@ public class JFrmEventos extends javax.swing.JFrame implements WindowListener, C
             jBtnMenu.setText("Menu");
             jBtnBorrar.setText("Delete data");
         }
-        if(jRdBtnFrancais.isSelected()==true){
+        if (jRdBtnFrancais.isSelected() == true) {
             jRdBtnSpanish.setSelected(false);
             jRdBtnFrancais.setSelected(false);
             jLblNombre.setText("Nom:");
